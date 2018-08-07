@@ -110,3 +110,5 @@ venv.bak/
 .gitignore
 .idea/
 general_gbdx.iml
+/gbdx-users.json
+/gbdx-accounts.json

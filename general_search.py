@@ -1,6 +1,6 @@
 from gbdxtools import Interface
 from gbdxtools.task import env
-from gbdxtools.catalog import Catalog
+
 
 
 
@@ -13,8 +13,9 @@ gbdx = Interface()
 def search(bbox_local):
     types = ["SENTINEL2"]
     results = gbdx.catalog.search(searchAreaWkt=bbox_local,types=types)
-    print(results)
+    catalog_ids = [r['identifier'] for r in results]
+    print(catalog_ids)
 
 
-bbox = env.inputs.get('bbox', '-104.5930463075638, 38.242156852455665, -104.59068596363069, 38.24456324037886')
+bbox = 'POLYGON((-104.5930463075638 38.242156852455665, -104.5930463075638 38.24456324037886, -104.59068596363069 38.24456324037886, -104.59068596363069 38.242156852455665,-104.5930463075638 38.242156852455665 ))'
 search(bbox_local=bbox)
